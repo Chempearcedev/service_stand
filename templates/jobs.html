@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Stand</title>
+</head>
+<body>
+       {% for job in jobs %}
+           {{ job.job_name }}<br>
+           {{ job.category_name }}<br>
+           {{ job.job_description }}<br>
+           {{ job.is_urgent }}<br>
+           {{ job.due_date }}<br>
+       {% endfor %}
+</body>
+</html>
