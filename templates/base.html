@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
@@ -12,6 +15,37 @@
     <title>Service Stand</title>
 </head>
 <body>
+
+    <header>
+        <!-- navbar-->
+	<nav class="nav-extended text-shadow light-blue darken-1">
+			<div class="nav-wrapper">
+				<a href="{{ url_for('get_jobs') }}" class="brand-logo navbar-title">Service Stand</a>
+				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+				<ul class="right hide-on-med-and-down">
+					<li><a href="{{ url_for('get_jobs') }}"><span class="navbar-title">Home</span></a></li>
+					<li><a href="#"><span>Jobs</span></a></li>
+					<li><a href="#">Add a Job</a></li>
+					<li><a href="#">My Profile</a></li>
+					<li><a href="#">Log out</a></li>
+					<li><a href="#">Log In</a></li>
+					<li><a href="#">Sign Up</a></li>
+				</ul>
+			</div>
+		</nav>
+
+        <!-- mobile sidenav -->
+		<ul class="sidenav" id="mobile-demo">
+            <li><h4 class="center-align light-blue-text text-darken 4">Service Stand</h4></li>
+       	<li><a href="{{ url_for('get_jobs') }}">Home</a></li>
+					<li><a href="#">Jobs</a></li>
+					<li><a href="#">Add a Job</a></li>
+					<li><a href="#">My Profile</a></li>
+					<li><a href="#">Log out</a></li>
+					<li><a href="#">Log In</a></li>
+					<li><a href="#">Sign Up</a></li>
+		</ul>
+    </header>
      
     {% block content %}
     {% endblock %}
