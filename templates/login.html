@@ -1,25 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
 
- <h4 class="center-align">Register</h4>
+ <h4 class="center-align">Log In</h4>
 
-      <div class="row">
+     <div class="row">
         <div class="col s12">
             <p class="center-align">
-                Are you already registered?
-                <a href="{{ url_for('login') }}" class="blue-grey lighten-4">Log In</a>
+                New Here?
+                <a href="{{ url_for('registration') }}" class="blue-grey lighten-4">Register Account</a>
             </p>
         </div>
     </div>
 
 <!---username-->
   <div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('registration') }}">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
       <div class="card blue-grey lighten-4">
         <div class="card-content white-text">
             <div class="row">
                 <div class="input-field col s12">
-                  <i class="fas fa-user-lock prefix black-text text-darken-4"></i>
+                  <i class="fas fa-user-cogs prefix black-text text-darken-4"></i>
                    <input id="username" name="username" type="text" minlength="6"
                             maxlength="15" pattern="^[a-zA-Z0-9]{6,15}$" class="validate">
                  <label for="username">Username</label>
@@ -34,10 +34,10 @@
             <label for="password">Password</label>
         </div>
       </div>
-      <!--registration-->
+      <!--logging in-->
        <div class="row">
                     <button type="submit" class="col s10 btn-large white offset-m1 darken-2 text-shadow">
-                        <span class="button">Register</span><i class="fas fa-sign-in-alt"></i>
+                        <span class="button">logging In</span><i class="fas fa-sign-in-alt"></i>
                     </button>
                 </div>
         </div>
