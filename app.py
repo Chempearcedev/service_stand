@@ -17,6 +17,15 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+@app.route("/userprofile/<username>", methods=["GET", "POST"])
+def userprofile(username):
+    # grab the session user's username from db
+    username = mongo.db.user.find_one(
+        {"username": session["user"]})["username"]
+    return render_template("userprofile.html", username=username)
+
+
+#REGISTRATION
 
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
@@ -38,7 +47,11 @@ def registration():
         # there is a new user put into the session cookie
         session["user"] = request.form.get("username").lower()
         flash("Your Registration Was Successful!")
+        return redirect(url_for("userprofile", username=session["user"]))
+
     return render_template("registration.html")
+
+#JOBS FUNCTION
 
 
 @app.route("/")
@@ -62,14 +75,17 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
+                    flash("Welcome, {}".format
+                        (request.form.get("username")))
+                    return redirect(url_for
+                        ("userprofile", username=session["user"]))
             else:
-               
+
                 flash("That's an incorrect Username and/or Password")
                 return redirect(url_for("login"))
 
         else:
-            
+
             flash("That's an incorrect Username and/or Password")
             return redirect(url_for("login"))
 
