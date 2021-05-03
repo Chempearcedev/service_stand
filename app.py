@@ -17,15 +17,32 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
+@app.route("/")
+@app.route("/get_jobs")
+def get_jobs():
+    jobs = mongo.db.jobs.find()
+    return render_template("jobs.html", jobs=jobs)
+
+
 @app.route("/userprofile/<username>", methods=["GET", "POST"])
 def userprofile(username):
     # grab the session user's username from db
     username = mongo.db.user.find_one(
         {"username": session["user"]})["username"]
+
+    if session["user"]:
+        return render_template("userprofile.html", username=username)
+
     return render_template("userprofile.html", username=username)
 
 
-#REGISTRATION
+@app.route("/loggingout")
+def loggingout():
+    flash("You are logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
 
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
@@ -51,14 +68,6 @@ def registration():
 
     return render_template("registration.html")
 
-#JOBS FUNCTION
-
-
-@app.route("/")
-@app.route("/get_jobs")
-def get_jobs():
-    jobs = mongo.db.jobs.find()
-    return render_template("jobs.html", jobs=jobs)
 
 # LOGIN FUNCTION
 
@@ -75,7 +84,7 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format
+                    flash("Hello there, {}".format
                         (request.form.get("username")))
                     return redirect(url_for
                         ("userprofile", username=session["user"]))
