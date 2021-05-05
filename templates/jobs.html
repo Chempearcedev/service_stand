@@ -1,13 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
 
+ <div class="row">
+     {% for job in jobs %}
+      <div class="col s12 m4">
+       <div class="card">
+        <div class="card-image hoverable">
+          <img src="{{ job.photo }}" alt="image alt text"/>
+           <span class="card-title">{{ job.first }} &ensp; {{ job.last }}</span>
+             </div>
+               <div class="card-content amber accent-1 hoverable">
+                  {% if job.available_now == "Yes" %}
+                  <div><strong>My Telephone Number:</strong> &nbsp {{ job.telephone }} &nbsp
+              <i class="fas fa fa-phone light-blue-text text-lighten-2 tooltipped"
+            data-position="right" data-tooltip="I am available to call!"></i></div>
+          {% endif %}
+       <div class="highlight"><strong>Available Now:</strong>&emsp; {{ job.available_now}}</div>
+     <div class="highlight"><strong>My Skills:</strong>&emsp; {{ job.skills}}</div>
+      </div>
+        <div class="card-action">
+           <a href="#">This is a link</a>
+            </div>
+             </div>
+         </div>
+     {% endfor %}
+  </div>
+</ul>
 
-       {% for job in jobs %}
-           {{ job.job_name }}<br>
-           {{ job.category_name }}<br>
-           {{ job.job_description }}<br>
-           {{ job.is_urgent }}<br>
-           {{ job.due_date }}<br>
-       {% endfor %}
 
-       {% endblock %}
+    {% endblock %}

@@ -21,13 +21,13 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_jobs")
 def get_jobs():
-    jobs = mongo.db.jobs.find()
+    jobs = list(mongo.db.jobs.find())
     return render_template("jobs.html", jobs=jobs)
 
 
 @app.route("/userprofile/<username>", methods=["GET", "POST"])
 def userprofile(username):
-    # grab the session user's username from db
+
     username = mongo.db.user.find_one(
         {"username": session["user"]})["username"]
 
@@ -61,7 +61,7 @@ def registration():
         }
         mongo.db.user.insert_one(registration)
 
-        # there is a new user put into the session cookie
+       
         session["user"] = request.form.get("username").lower()
         flash("Your Registration Was Successful!")
         return redirect(url_for("userprofile", username=session["user"]))
@@ -80,7 +80,7 @@ def login():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            # making sure hashed password matches what users input
+         
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
