@@ -101,9 +101,26 @@ def loggingout():
     return redirect(url_for("login"))
 
 
-@app.route("/credentials.html")
+@app.route("/credentials.html", methods=["GET", "POST"])
 def credentials():
-    return render_template("credentials.html")
+    if request.method == "POST":
+        credentials = {
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "profession": request.form.get("profession"),
+            "available_now": request.form.get("available_now"),
+            "available_date": request.form.get("available_date"),
+            "telephone": request.form.get("telephone"),
+            "skills": request.form.get("skills"),
+            "locations": request.form.get("available_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.jobs.insert_one(credentials)
+        flash("Your Credentials are Successfully Updated")
+        return redirect(url_for("get_jobs"))
+        
+    professions = mongo.db.professions.find().sort("profession_type", 1)
+    return render_template("credentials.html", professions=professions)
 
 
 if __name__ == "__main__":
