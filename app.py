@@ -37,13 +37,6 @@ def userprofile(username):
     return render_template("userprofile.html", username=username)
 
 
-@app.route("/loggingout")
-def loggingout():
-    flash("You are logged out")
-    session.pop("user")
-    return redirect(url_for("login"))
-
-
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
     if request.method == "POST":
@@ -99,6 +92,18 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/loggingout")
+def loggingout():
+    flash("You are logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
+
+@app.route("/credentials.html")
+def credentials():
+    return render_template("credentials.html")
 
 
 if __name__ == "__main__":

@@ -27,7 +27,7 @@
                         <li><a href="{{ url_for('get_jobs') }}"><span class="navbar-title">Home</span></a></li>
                         <li><a href="{{ url_for('userprofile', username=session['user']) }}"><span class="navbar-title">My Profile</span></a></li>
 					    <li><a href="#"><span class="navbar-title">Jobs</span></a></li>
-					    <li><a href="#"><span class="navbar-title">Add A Job</span></a></li>
+					    <li><a href="{{ url_for('credentials') }}"><span class="navbar-title">Add A Job</span></a></li>
                         <li><a href="{{ url_for('loggingout') }}"><span class="navbar-title">Log Out</span></a></li>
                     {% else %}
 					    <li><a href="{{ url_for('login') }}"><span class="navbar-title">Log In</span></a></li>
@@ -44,7 +44,7 @@
                 <li><a href="{{ url_for('get_jobs') }}">Home</a></li>
                 <li><a href="{{ url_for('userprofile', username=session['user']) }}">My Profile</a></li>
 				<li><a href="#">Jobs</a></li>
-				<li><a href="#">Add a Job</a></li>
+				<li><a href="{{ url_for('credentials') }}">Add a Job</a></li>
                 <li><a href="{{ url_for('loggingout') }}">Log out</a></li>
             {% else %}
 				<li><a href="{{ url_for('login') }}">Log In</a></li>
