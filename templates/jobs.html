@@ -7,7 +7,7 @@
        <div class="card">
         <div class="card-image hoverable">
           <img src="{{ job.photo }}" alt="image alt text"/>
-           <span class="card-title">{{ job.first }} &ensp; {{ job.last }}</span>
+           <span class="card-title">{{ job.first_name }} &ensp; {{ job.last_name }}</span>
              </div>
                <div class="card-content amber accent-1 hoverable">
                   {% if job.available_now == "Yes" %}
@@ -16,6 +16,7 @@
             data-position="right" data-tooltip="I am available to call!"></i></div>
             {% else %}
           {% endif %}
+          <div class="highlight"><strong>Profession:</strong>&emsp; {{ job.profession}}</div>
        <div class="highlight"><strong>Available Now:</strong>&emsp; {{ job.available_now}}</div>
      <div class="highlight"><strong>My Skills:</strong>&emsp; {{ job.skills}}</div>
       <p><em>Thanks {{ job.created_by }}for completing this action! </em></p>

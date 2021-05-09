@@ -128,13 +128,9 @@ def credentials():
 @app.route("/edit_jobs/<job_id>", methods=["GET", "POST"])
 def edit_jobs(job_id):
     job = mongo.db.jobs.find_one({"_id": ObjectId(job_id)})
-    return render_template("edit_jobs.html", job=job)
+    professions = mongo.db.professions.find().sort("profession_type", 1)
+    return render_template("edit_jobs.html", job=job, professions=professions)
 
-
-@app.route("/edit_jobs/<job_id>", methods=["GET", "POST"])
-def edit_jobs(job_id):
-    job = mongo.db.jobs.find_one({"_id": ObjectId(job_id)})
-    return render_template("edit_jobs.html", job=job)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

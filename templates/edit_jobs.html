@@ -2,39 +2,45 @@
 {% block content %}
 <!--form-->
 
-<h2>Edit Tasks</h2>
+<h2>Edit Profile</h2>
+
  
   <div class="row card blue-grey lighten-4">
  <form class="col s12" method="POST" action="{{ url_for('edit_jobs', job_id=job._id) }}">
         <!---first name -->
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" name="first_name" type="text" class="validate black_text" minlength="1" 
+          <input placeholder="Placeholder" id="first_name" name="first_name" value="{{ job.first_name }}" type="text" class="validate black_text" minlength="1" 
           maxlength="15" required>
           <label for="first_name">First Name</label>
         </div>
         <!---last name -->
         <div class="input-field col s6">
-          <input id="last_name" type="text" name="last_name" class="validate" minlength="1" 
+          <input id="last_name" type="text" name="last_name" value="{{ job.last_name }}" class="validate" minlength="1" 
           maxlength="15" required>
           <label for="last_name">Last Name</label>
         </div>
       </div>
       <!---profession-->
       <div class="row">
-	   <select id="profession" name="profession" class="validate" required>
-        <option value="" disabled selected>Choose Profession Type</option>
+       <select id="profession" name="profession" class="validate" required>
+        <option value="" disabled>Choose Profession Type</option>
          {% for profession in professions %}
-          <option value="{{ profession.profession_type }}">{{ profession.profession_type }}</option>
-          <label for="profession">Task Category</label>
+            {% if profession.profession_type == job.profession %}
+                <option value="{{ profession.profession_type }}" selected>{{ profession.profession_type}}</option>
+            {% else %}
+                <option value="{{ profession.profession_type }}">{{ profession.profession_type }}</option>
+            {% endif %}
+          <label for="profession">Profession</label>
     </div>             
 {% endfor %}
+
     </select>
       <!---availability-->
       <div class="row">
           
         <div class="input-field col s12">
-          <input id="available_now" type="text" name="available_now" class="validate" minlength="1" 
+          <input id="available_now" type="text" name="available_now" value="{{ job.available_now }}" class="validate" minlength="1" 
           maxlength="4" required>
           <label for="available_now">Are you available to work now?</label>
         </div>
@@ -42,14 +48,14 @@
       <!---available date-->
      <div class="row">
         <div class="input-field col s12">
-          <input id="available_date" type="text" name="available_date" class="datepicker" required>
+          <input id="available_date" type="text" name="available_date" value="{{ job.available_date}}" class="datepicker" required>
           <label for="available_date">When are you available?</label>
         </div>
       </div>
       <!---telephone number-->
       <div class="row">
         <div class="input-field col s12">
-          <input id="telephone" type="number" name="telephone" class="validate" minlength="10" 
+          <input id="telephone" type="number" name="telephone" value="{{ job.telephone }}" class="validate" minlength="10" 
           maxlength="12" required>
           <label for="telephone">Telephone Number:</label>
         </div>
@@ -57,20 +63,23 @@
       <!--skills-->
      <div class="row">
           <div class="input-field col s12">
-            <input id="skills" type="text" name="skills" class="validate" minlength="1" maxlength="200">
+            <input id="skills" type="text" name="skills" value="{{ job.skills }}" class="validate" minlength="1" maxlength="200">
             <label for="skills">Skills:</label>
           </div>
         </div>
         <!--locations-->
          <div class="row">
           <div class="input-field col s12">
-            <input id="locations" type="text" name="locations" class="validate" minlength="2" 
+            <input id="locations" type="text" name="locations" value="{{ job.locations }}" class="validate" minlength="2" 
             maxlength="50" required>
             <label for="locations">Location Availability:</label>
           </div>
           <!--submit button-->
-            <button class="btn waves-effect waves-light" type="submit">Submit
-    <i class="material-icons right">Edit Your Profile</i>
+           <a href="{{ url_for('get_jobs') }}" class="btn waves-effect waves-light">
+               Cancel Edit 
+           </a>
+            <button class="btn waves-effect waves-light" type="submit">
+    <i class="fas fa-edit left">Edit Your Profile</i> 
   </button>
         </div>
       </div>
