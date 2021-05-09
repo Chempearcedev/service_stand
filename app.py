@@ -116,17 +116,32 @@ def credentials():
             "created_by": session["user"]
         }
         mongo.db.jobs.insert_one(credentials)
-        flash("Your Credentials are Successfully Updated")
+        flash("Your Credentials Have Been Successfully Added")
         return redirect(url_for("get_jobs"))
 
     job = mongo.db.jobs.find().sort("first", 1)
     professions = mongo.db.professions.find().sort("profession_type", 1)
     return render_template(
-        "credentials.html", job=job, professions=professions)
+    "credentials.html", job=job, professions=professions)
 
 
 @app.route("/edit_jobs/<job_id>", methods=["GET", "POST"])
 def edit_jobs(job_id):
+    if request.method == "POST":
+        submitting = {
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "profession": request.form.get("profession"),
+            "available_now": request.form.get("available_now"),
+            "available_date": request.form.get("available_date"),
+            "telephone": request.form.get("telephone"),
+            "skills": request.form.get("skills"),
+            "locations": request.form.get("available_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.jobs.update({"_id": ObjectId(job_id)}, submitting)
+        flash("Your Credentials Have Been Successfully Updated")
+
     job = mongo.db.jobs.find_one({"_id": ObjectId(job_id)})
     professions = mongo.db.professions.find().sort("profession_type", 1)
     return render_template("edit_jobs.html", job=job, professions=professions)
