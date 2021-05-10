@@ -25,14 +25,22 @@ def get_jobs():
     return render_template("jobs.html", jobs=jobs)
 
 
+@app.route("/search_bar", methods=["GET", "POST"])
+def search_bar():
+    querying = request.form.get("querying")
+    jobs = list(mongo.db.jobs.find({"$text": {"$search": querying}}))
+    return render_template("jobs.html", jobs=jobs)
+
+
 @app.route("/userprofile/<username>", methods=["GET", "POST"])
 def userprofile(username):
-
+    jobs = list(mongo.db.jobs.find())
     username = mongo.db.user.find_one(
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("userprofile.html", username=username)
+        return render_template(
+            "userprofile.html", username=username)
 
     return render_template("userprofile.html", username=username)
 
@@ -54,7 +62,6 @@ def registration():
         }
         mongo.db.user.insert_one(registration)
 
-       
         session["user"] = request.form.get("username").lower()
         flash("Your Registration Was Successful!")
         return redirect(url_for("userprofile", username=session["user"]))
