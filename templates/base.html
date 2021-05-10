@@ -6,6 +6,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lateef&family=Prata&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Charm&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
@@ -20,17 +22,17 @@
         <!-- navbar-->
 	<nav class="nav-extended text-shadow white darken-1">
 			<div class="nav-wrapper">
-				<a href="{{ url_for('get_jobs') }}" class="brand-logo"><span class="navbar-title">Service Stand</span></a>
+				<a href="{{ url_for('get_jobs') }}" class="brand-logo"><span class="text">Service Stand</span></a>
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger left"><i class="fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">                    
                     {% if session.user %}
-                        <li><a href="{{ url_for('get_jobs') }}"><span class="navbar-title">Home</span></a></li>
-                        <li><a href="{{ url_for('userprofile', username=session['user']) }}"><span class="navbar-title">My Profile</span></a></li>
-					    <li><a href="{{ url_for('credentials') }}"><span class="navbar-title">Add A Job</span></a></li>
-                        <li><a href="{{ url_for('loggingout') }}"><span class="navbar-title">Log Out</span></a></li>
+                        <li><a href="{{ url_for('get_jobs') }}"><span class="text">Home</span></a></li>
+                        <li><a href="{{ url_for('userprofile', username=session['user']) }}"><span class="text">My Profile</span></a></li>
+					    <li><a href="{{ url_for('credentials') }}"><span class="text">Add A Job</span></a></li>
+                        <li><a href="{{ url_for('loggingout') }}"><span class="text">Log Out</span></a></li>
                     {% else %}
-					    <li><a href="{{ url_for('login') }}"><span class="navbar-title">Log In</span></a></li>
-                        <li><a href="{{ url_for('registration') }}"><span class="navbar-title">Create An Account</span></a></li>
+					    <li><a href="{{ url_for('login') }}"><span class="text">Log In</span></a></li>
+                        <li><a href="{{ url_for('registration') }}"><span class="text">Create An Account</span></a></li>
                     {% endif %}
 				</ul>
 			</div>
@@ -64,7 +66,7 @@
         {% endwith %}
     </section>
 
-    <main class="container">
+    <main class="container-fluid">
         {% block content %}
         {% endblock %}
     </main>

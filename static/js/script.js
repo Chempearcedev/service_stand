@@ -2,6 +2,7 @@
     $('.sidenav').sidenav();
      $('.tooltipped').tooltip();
      $('select').formSelect();
+      $('.collapsible').collapsible();
      $(".datepicker").datepicker({
         format: "dd mm, yyyy",
         yearRange: 2,

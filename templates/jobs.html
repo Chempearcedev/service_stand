@@ -1,17 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align ">All Profiles</h3>
+<h3 class="black-text text-darken-4 text center-align ">All Profiles</h3>
+<p class="info-header italic col m10"> Find and connect with talented and experienced members of the film industry. Search based on skills and experience to find the right profiles </p>
 
-    <div class="row card-panel grey lighten-1">
-        <form action="{{ url_for('search_bar') }}" method="post" class="col s12">
-            <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8">
+    <div class="row card-panel rounded-border grey lighten-1 search-bar">
+        <form action="{{ url_for('search_bar') }}" method="post" class="col s12 m12 center-align">
+            <div class="row valign-wrapper center-align search-link">
+                <div class="input-field col s12 m8 search-link">
                     <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
                     <input type="text" name="querying" id="querying" minlength="2" class="validate" required>
                     <label for="querying">Search Profiles</label>
                 </div>
-            <div class="col s12 m4">
+
+            <div class="col s12 m6">
                     <a href="{{ url_for('get_jobs') }}" class="red btn text-shadow">Reset</a>
                     <button type="submit" class="light-blue darken-1 btn text-shadow">
                         <i class="fas fa-search left"></i> Search
@@ -24,13 +26,16 @@
     {% if jobs|length > 0 %}
  <div class="row">
      {% for job in jobs %}
-      <div class="col s12 m3">
-       <div class="card">
+     <div class="profile-info">
+      <div class="col s12 m6">
+       <div class="card profile">
         <div class="card-image hoverable">
-          <img src="{{ job.photo }}" alt="image alt text"/>
-           <span class="card-title black-text">{{ job.first_name }} &ensp; {{ job.last_name }}</span>
-             </div>
-               <div class="card-content amber accent-1 hoverable">
+          
+          <img src="{{ job.photo }}" alt="image alt text"/> 
+          </div>
+           <span class="card-title black-text"><strong>Name:</strong>  {{ job.first_name }} &ensp; {{ job.last_name }}</span>
+            
+            <div class="card-content  cyan hoverable">
                   {% if job.available_now == "Yes" %}
                   <div><strong>My Telephone Number:</strong> &nbsp {{ job.telephone }} &nbsp
               <i class="fas fa fa-phone light-blue-text text-lighten-2 tooltipped"
@@ -39,18 +44,28 @@
           {% endif %}
           <div class="highlight"><strong>Profession:</strong>&emsp; {{ job.profession}}</div>
        <div class="highlight"><strong>Available Now:</strong>&emsp; {{ job.available_now}}</div>
-     <div class="highlight"><strong>My Skills:</strong>&emsp; {{ job.skills}}</div>
-      <p><em>Thanks {{ job.created_by }}for completing this action! </em></p>
-      </div>
-                <div class="col s3">
+
+  <ul class="collapsible box">
+    <li>
+      <div class="collapsible-header"><strong>My Skills:</strong></div>
+      <div class="collapsible-body"><span>{{ job.skills}}</span></div>
+    </li>
+    </ul>
+      <div class="col s3">
                     
-                    {% if session.user|lower == job.created_by|lower %}
-                        <a href="{{ url_for('delete_job', job_id=job._id) }}" class="btn-small grey lighten-1 black-text">Delete</a>
-                        <a href="{{ url_for('edit_jobs', job_id=job._id) }}" class="btn-small grey lighten-1 black-text">>Edit</a>
-                    {% endif %} 
-                </div>
+        {% if session.user|lower == job.created_by|lower %}
+             <div class="button">
+                <a href="{{ url_for('delete_job', job_id=job._id) }}" class="btn-small grey lighten-1 black-text">Delete</a> 
+                <a href="{{ url_for('edit_jobs', job_id=job._id) }}" class="btn-small grey lighten-1 black-text edit">Edit</a>
+             </div>
+        {% endif %} 
+        </div>
+        <br>
+      <p class="something"><em>Thanks {{ job.created_by }}for completing this action! </em></p>
+      </div>
              </div>
          </div>
+     </div>
      {% endfor %}
   </div>
 </ul>

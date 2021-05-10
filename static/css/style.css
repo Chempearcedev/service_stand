@@ -1,8 +1,9 @@
 body {
     background-color: white;
+    margin: 0;
 }
 
-.navbar-title  {
+.text  {
 color: black;
 font-family: 'Rajdhani', sans-serif;
 }
@@ -10,4 +11,46 @@ font-family: 'Rajdhani', sans-serif;
 .button {
     color: black;
     font-family: 'Lateef', cursive;
+}
+
+.search-bar {
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+    height: 90px;
+}
+
+.search-link {
+    margin-bottom: 25px;
+    margin-top: 0px;
+}
+
+.profile {
+    margin-bottom: 10px;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 30px;
+}
+
+.info-header {
+    text-align: center;
+}
+
+.profile-info {
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.box {
+    box-shadow: none;
+    border: none;
+}
+
+.edit {
+    position: absolute;
+}
+
+.something {
+    text-align: right;
 }
