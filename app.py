@@ -34,7 +34,7 @@ def search_bar():
 
 @app.route("/userprofile/<username>", methods=["GET", "POST"])
 def userprofile(username):
-    jobs = list(mongo.db.jobs.find())
+  
     username = mongo.db.user.find_one(
         {"username": session["user"]})["username"]
 
@@ -43,6 +43,7 @@ def userprofile(username):
             "userprofile.html", username=username)
 
     return render_template("userprofile.html", username=username)
+    
 
 
 @app.route("/registration", methods=["GET", "POST"])
@@ -112,6 +113,7 @@ def loggingout():
 def credentials():
     if request.method == "POST":
         credentials = {
+            "image_url": request.form.get("image_url"),
             "first_name": request.form.get("first_name"),
             "last_name": request.form.get("last_name"),
             "profession": request.form.get("profession"),
@@ -136,6 +138,7 @@ def credentials():
 def edit_jobs(job_id):
     if request.method == "POST":
         submitting = {
+            "image_url": request.form.get("image_url"),
             "first_name": request.form.get("first_name"),
             "last_name": request.form.get("last_name"),
             "profession": request.form.get("profession"),
@@ -159,6 +162,7 @@ def delete_job(job_id):
     mongo.db.jobs.remove({"_id": ObjectId(job_id)})
     flash("Profile Successfully Deleted")
     return redirect(url_for("get_jobs"))
+
 
 
 if __name__ == "__main__":

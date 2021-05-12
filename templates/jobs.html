@@ -2,7 +2,7 @@
 {% block content %}
 
 <h3 class="black-text text-darken-4 text center-align ">All Profiles</h3>
-<p class="info-header italic col m10"> Find and connect with talented and experienced members of the film industry. Search based on skills and experience to find the right profiles </p>
+<p class="info-header italic col m10"> Find and connect with talented members of the film industry. Search key words in skills, locations and experience to find the right profiles </p>
 
     <div class="row card-panel rounded-border grey lighten-1 search-bar">
         <form action="{{ url_for('search_bar') }}" method="post" class="col s12 m12 center-align">
@@ -31,8 +31,10 @@
        <div class="card profile">
         <div class="card-image hoverable">
           
-          <img src="{{ job.photo }}" alt="image alt text"/> 
+       
           </div>
+          <img src="{{ job.image_url }}"> 
+          <br>
            <span class="card-title black-text"><strong>Name:</strong>  {{ job.first_name }} &ensp; {{ job.last_name }}</span>
             
             <div class="card-content  cyan hoverable">

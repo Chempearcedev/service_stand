@@ -1,8 +1,8 @@
   $(document).ready(function(){
     $('.sidenav').sidenav();
-     $('.tooltipped').tooltip();
-     $('select').formSelect();
-      $('.collapsible').collapsible();
+    $('.tooltipped').tooltip();
+    $('select').formSelect();
+    $('.collapsible').collapsible();
      $(".datepicker").datepicker({
         format: "dd mm, yyyy",
         yearRange: 2,
@@ -11,6 +11,9 @@
             done: "Select"
         }
     });
+
+
+
 validateMaterializeSelect();
     function validateMaterializeSelect() {
         let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
@@ -39,3 +42,5 @@ validateMaterializeSelect();
         });
     }
   });
+
+ 
