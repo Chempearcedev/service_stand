@@ -34,16 +34,13 @@ def search_bar():
 
 @app.route("/userprofile/<username>", methods=["GET", "POST"])
 def userprofile(username):
-  
-    username = mongo.db.user.find_one(
-        {"username": session["user"]})["username"]
-
     if session["user"]:
+        jobs = mongo.db.jobs.find({"created_by": username})
+        username = mongo.db.user.find_one({
+            "username": session["user"]})["username"]
         return render_template(
-            "userprofile.html", username=username)
-
-    return render_template("userprofile.html", username=username)
-    
+            "userprofile.html", username=username, jobs=jobs)
+    return render_template("userprofile.html", username=username, jobs=jobs)
 
 
 @app.route("/registration", methods=["GET", "POST"])
