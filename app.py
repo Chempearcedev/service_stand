@@ -118,7 +118,7 @@ def credentials():
             "available_date": request.form.get("available_date"),
             "telephone": request.form.get("telephone"),
             "skills": request.form.get("skills"),
-            "locations": request.form.get("available_date"),
+            "locations": request.form.get("locations"),
             "created_by": session["user"]
         }
         mongo.db.jobs.insert_one(credentials)

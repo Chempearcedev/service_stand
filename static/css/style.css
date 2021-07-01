@@ -33,6 +33,35 @@ font-family: 'Rajdhani', sans-serif;
     margin-right: 30px;
 }
 
+.profile-background {
+    height: 50%;
+    background-color: #f2f3f4;
+}
+
+.profile-header {
+    text-align: center;
+    font-family: 'Rajdhani', sans-serif;
+    margin: 20px;
+}
+
+.profile-page {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: large;
+}
+
+.profile-decription {
+    text-align: center;
+    font-size: 20px;
+}
+.profile-name {
+    font-size: 20px;
+}
+
+.name {
+    font-size: 30px;
+}
+
 .info-header {
     text-align: center;
 }
