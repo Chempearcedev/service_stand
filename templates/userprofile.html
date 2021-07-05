@@ -13,12 +13,17 @@
       <div class="card horizontal">
         <div class="card-image profile-card">
           <img src="{{ job.image_url }}">
-          <span class="card-title">Your profile information</span>
+        
         </div>
         <div class="card-content">
           
-        <p class="profile-page"><span class="red-text lighten-1 profile-name"> TV/film professional </span><span class="name">{{ job.first_name }}{{ job.last_name }}</span><hr><br>
-            <span class="red-text lighten-1">Profession Area:</span> {{ job.profession }}
+        <p class="profile-page"><span class="red-text lighten-1 profile-name"> TV/film professional </span><span class="name">{{ job.first_name }}      {{ job.last_name }}</span><hr><br>
+            <span class="red-text lighten-1">Profession Area:</span> {{ job.profession }} <br>
+            <span class="red-text lighten-1">Available To Work Now:</span> {{ job.available_now }} <br>
+            <span class="red-text lighten-1">Availability Date:</span> {{ job.available_date }} <br>
+            <span class="red-text lighten-1">Your Telephone Number :</span> {{ job.telephone }} <br>
+            <span class="red-text lighten-1">Your Skills:</span> {{ job.skills }} <br>
+            <span class="red-text lighten-1">Locations you are availaable to work in:</span> {{ job.locations }}
         </p>
          
         </div>

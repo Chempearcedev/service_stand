@@ -2,7 +2,7 @@
 {% block content %}
 
 <h3 class="black-text text-darken-4 text center-align ">All Profiles</h3>
-<p class="info-header italic col m10"> Find and connect with talented members of the film industry. Search key words in skills, locations and experience to find the right profiles </p>
+<p class="info-header italic col m10"> Here you can find and connect with talented members of the film industry. Search key words in skills, locations and experience to find the right profiles </p>
 
     <div class="row card-panel rounded-border grey lighten-1 search-bar">
         <form action="{{ url_for('search_bar') }}" method="post" class="col s12 m12 center-align">
@@ -33,11 +33,11 @@
           
        
           </div>
-          <img src="{{ job.image_url }}"> 
+          <img src="{{ job.image_url }}" width="100%"> 
           <br>
            <span class="card-title black-text"><strong>Name:</strong>  {{ job.first_name }} &ensp; {{ job.last_name }}</span>
             
-            <div class="card-content  cyan hoverable">
+            <div class="card-content cyan hoverable">
                   {% if job.available_now == "Yes" %}
                   <div><strong>My Telephone Number:</strong> &nbsp {{ job.telephone }} &nbsp
               <i class="fas fa fa-phone light-blue-text text-lighten-2 tooltipped"
