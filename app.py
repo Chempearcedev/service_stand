@@ -143,7 +143,7 @@ def edit_jobs(job_id):
             "available_date": request.form.get("available_date"),
             "telephone": request.form.get("telephone"),
             "skills": request.form.get("skills"),
-            "locations": request.form.get("available_date"),
+            "locations": request.form.get("locations"),
             "created_by": session["user"]
         }
         mongo.db.jobs.update({"_id": ObjectId(job_id)}, submitting)
@@ -163,7 +163,7 @@ def delete_job(job_id):
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return 'This page does not exist', 404
+    return render_template("404.html")
 
 
 if __name__ == "__main__":

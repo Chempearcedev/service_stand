@@ -13,10 +13,10 @@
                     <label for="querying">Search Profiles</label>
                 </div>
 
-            <div class="col s12 m6">
-                    <a href="{{ url_for('get_jobs') }}" class="red btn text-shadow">Reset</a>
-                    <button type="submit" class="light-blue darken-1 btn text-shadow">
-                        <i class="fas fa-search left"></i> Search
+      <div class="col s12 m6">
+           <a href="{{ url_for('get_jobs') }}" class="red btn text-shadow">Reset</a>
+                 <button type="submit" class="light-blue darken-1 btn text-shadow">
+                       <i class="fas fa-search left"></i> Search
                     </button>
                 </div>
             </div>
@@ -28,48 +28,49 @@
      {% for job in jobs %}
      <div class="profile-info">
       <div class="col s12 m6">
-       <div class="card profile">
-        <div class="card-image hoverable">
-          
-       
-          </div>
-          <img src="{{ job.image_url }}" width="100%"> 
-          <br>
-           <span class="card-title black-text"><strong>Name:</strong>  {{ job.first_name }} &ensp; {{ job.last_name }}</span>
-            
-            <div class="card-content cyan hoverable">
-                  {% if job.available_now == "Yes" %}
-                  <div><strong>My Telephone Number:</strong> &nbsp {{ job.telephone }} &nbsp
-              <i class="fas fa fa-phone light-blue-text text-lighten-2 tooltipped"
-            data-position="right" data-tooltip="I am available to call!"></i></div>
-            {% else %}
-          {% endif %}
-          <div class="highlight"><strong>Profession:</strong>&emsp; {{ job.profession}}</div>
-       <div class="highlight"><strong>Available Now:</strong>&emsp; {{ job.available_now}}</div>
+         <div class="card profile">
+            <div class="card-image hoverable">
+              </div>
+           <img src="{{ job.image_url }}" width="100%"> 
+        <br>
+    <span class="card-title black-text"><strong>Name:</strong>  {{ job.first_name }} &ensp; {{ job.last_name }}</span>
+
+    <div class="card-content cyan hoverable">
 
   <ul class="collapsible box">
     <li>
-      <div class="collapsible-header"><strong>My Skills:</strong></div>
-      <div class="collapsible-body"><span>{{ job.skills}}</span></div>
-    </li>
-    </ul>
+        <div class="collapsible-header"><strong>  <i class="fa fa-bars" aria-hidden="true"></i>Professional Experience / Availability / Locations </strong></div>
+               <div class="collapsible-body"> 
+                <div class="highlight"><strong>Available Now:</strong>&emsp; {{ job.available_now}}</div>
+                 <div class="highlight"><strong>Profession:</strong>&emsp; {{ job.profession}}</div>
+                 <div class="highlight"><strong>Location Availability:</strong>&emsp; {{ job.locations}}</div>
+                   <strong>Skills/Experience: </strong>  <span>{{ job.skills}} 
+                     {% if job.available_now == "Yes" %}
+                   <div><strong>My Telephone Number:</strong> &nbsp {{ job.telephone }} &nbsp
+                 <i class="fas fa fa-phone light-blue-text text-lighten-2 tooltipped"
+              data-position="right" data-tooltip="I am available to call!"></i></div>
+           {% else %}
+        {% endif %}
+     <!----test-->
+<br>
       <div class="col s3">
                     
         {% if session.user|lower == job.created_by|lower %}
              <div class="button">
-                <a href="{{ url_for('delete_job', job_id=job._id) }}" class="btn-small grey lighten-1 black-text">Delete</a> 
+                  <a href="{{ url_for('delete_job', job_id=job._id) }}" class="btn-small grey lighten-1 black-text">Delete</a> 
                 <a href="{{ url_for('edit_jobs', job_id=job._id) }}" class="btn-small grey lighten-1 black-text edit">Edit</a>
              </div>
         {% endif %} 
         </div>
-        <br>
-      <p class="something"><em>Thanks {{ job.created_by }}for completing this action! </em></p>
+   </div>
       </div>
-             </div>
          </div>
-     </div>
-     {% endfor %}
-  </div>
+            </div>
+         {% endfor %}
+      </div>
+</ul>
+</span></div>
+</li>
 </ul>
 {% else %}
 <h4 class="black-text text-darken-4 center-align">No Results Found</h4>
