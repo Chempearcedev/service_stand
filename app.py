@@ -161,7 +161,12 @@ def delete_job(job_id):
     return redirect(url_for("get_jobs"))
 
 
+@app.errorhandler(404)
+def page_not_found(error):
+    return 'This page does not exist', 404
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)
