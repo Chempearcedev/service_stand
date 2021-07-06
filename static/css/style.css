@@ -39,6 +39,10 @@ font-family: 'Rajdhani', sans-serif;
     margin-right: 30px;
 }
 
+.card-title {
+    margin-left: 25px;
+}
+
 .profile-background {
     height: 50%;
     background-color: #f2f3f4;

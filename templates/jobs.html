@@ -47,7 +47,7 @@
                  <div class="highlight"><strong>Profession:</strong>&emsp; {{ job.profession}}</div>
                  <div class="highlight"><strong>Location Availability:</strong>&emsp; {{ job.locations}}</div>
                    <strong>Skills/Experience: </strong>  <span>{{ job.skills}} 
-                     {% if job.available_now == "Yes" %}
+                     {% if job.available_now.lower() == "yes" %}
                    <div><strong>My Telephone Number:</strong> &nbsp {{ job.telephone }} &nbsp
                  <i class="fas fa fa-phone light-blue-text text-lighten-2 tooltipped"
               data-position="right" data-tooltip="I am available to call!"></i></div>
