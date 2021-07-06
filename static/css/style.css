@@ -79,6 +79,12 @@ font-family: 'Rajdhani', sans-serif;
     height: 100%;
 }
 
+.profile-image {
+    width: 100%!important;
+    height: 300px!important;
+    object-fit: cover;
+}
+
 .box {
     box-shadow: none;
     border: none;
@@ -92,3 +98,4 @@ font-family: 'Rajdhani', sans-serif;
 .something {
     text-align: right;
 }
+
