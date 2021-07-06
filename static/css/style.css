@@ -3,6 +3,11 @@ body {
     margin: 0;
 }
 
+.welcome-message {
+    align-content: center;
+    margin-right: 50px;
+}
+
 .text  {
 color: black;
 font-family: 'Rajdhani', sans-serif;
@@ -82,6 +87,7 @@ font-family: 'Rajdhani', sans-serif;
 .edit {
     position: absolute;
 }
+
 
 .something {
     text-align: right;

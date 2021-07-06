@@ -4,12 +4,12 @@
 
 <h2>Edit Profile</h2>
 
- 
-  <div class="row card blue-grey lighten-4">
- <form class="col s12" method="POST" action="{{ url_for('edit_jobs', job_id=job._id) }}">
+  <div class="container">
+  <div class="row card blue-grey lighten-4 edit-card m10">
+ <form class="col s12 m12" method="POST" action="{{ url_for('edit_jobs', job_id=job._id) }}">
         <!---first name -->
     <label for= "image_url">Please upload a photo</label>
-       <input class="file-field input-field" type="text" id="image_url" name="image_url">
+       <input class="file-field input-field" type="text" id="image_url" name="image_url" value="{{job.image_url }}">
       <div class="row">
         <div class="input-field col s6">
           <input placeholder="Placeholder" id="first_name" name="first_name" value="{{ job.first_name }}" type="text" class="validate black_text" minlength="1" 
@@ -25,6 +25,7 @@
       </div>
       <!---profession-->
       <div class="row">
+        <div class="col m12">
        <select id="profession" name="profession" class="validate" required>
         <option value="" disabled>Choose Profession Type</option>
          {% for profession in professions %}
@@ -36,7 +37,7 @@
           <label for="profession">Profession</label>
     </div>             
 {% endfor %}
-
+</div>
     </select>
       <!---availability-->
       <div class="row">
@@ -87,5 +88,7 @@
       </div>
     </form>
   </div>
+</div>
+
         
 {% endblock %}
