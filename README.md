@@ -16,17 +16,17 @@ to work and contact details.
 ## Table Of Contents
 
 ### 1. [ Goals ](#goals)  
-### 2.  [ UX ](#goal)
+### 2.  [ UX ](#UX)
 ### 3.  [ Design ](#goal)
 ### 4.  [ User Stories ](#goal)
 ### 5.  [ Features ](#goal)
 ### 6.  [ Technologies ](#goal)
 ### 7.  [ Testing ](#goal)
 ### 8.  [ Deployment ](#goal)
+### 8.  [ Credits ](#goal)
+### 8.  [ Deployment ](#goal)
 
-<a name="goals">
- Goals
-</a>
+# Goals
 
 ---
 To act as a platfrom for professionals in the TV/Film industy to connect for the purpose of work. 
@@ -35,8 +35,7 @@ To provide TV/Film makers a platform to source individuals based on locations an
 
 To allow users to create a profile showcasing their availability, skill set, locations availabiity and contact details, and update and delete their profile freely.
 
-## UX
-
+# UX
 ---
 
 This app was created to work on mobile size first, the ease of navigation allows users to find what they need on the platform.
@@ -146,7 +145,32 @@ If a user click on 'create a job' at the top of the page in the navigation bar, 
 * W3 Schools 
 * Font Awesome
 
-## Deployment 
+## Testing 
+---
+
+### Buttons 
+
+ - Delete : Tests have been done on the delete button to ensure only users are able to their delete button so they other users cannot delete their profile.
+
+ - Edit: The edit button was tested to ensure it links to the edit page which it does correctly. *Through this test i found that all information previously implemented was showing in the edit form APART from their image* This was fixed by correcting the edit jobs html page URL path.
+
+ - Error Handler : A 404 and 505 error pages are included to catch errors with a friendly page. This has been tested and works through seperate avenues 
+
+### CRUD 
+
+* Create: <br />Walking through the process of creating profile, users can navigate easily using the navigation bar through a lnk called 'Create a job'. This leads to a form that has a variaty of ways to input data. Images can be uploaded using a URL, dates can be selected using a pop up calander and text can be inputed 
+  - Error : I came accros an error whilst testing this when users select availability, it only showed users who wrote Yes with a capital Y, this was changed and now resolved.
+* Read: <br /> Users are able to read information on profiles on the homepage and within their user profile, displayed on cards.
+   - Error : Due to users inputing different data on their profile cards, i found this was changing the responsivness of the card grid layout on the homepage. I solved this issue by placing user profile info in a collapsible box.
+- Update: <br /> Users are able to edit their profile from an edit button that takes them to another page with a form. A message informing the user their profile was updated will show once the user clicks the edit button.
+     - Error : Users url for their profile image was not automatically shown on the edit form like other information, i found a mistake in the code in the edit_jobs.html page. This was fixed and images were now shown. 
+ - Delete : Users are able to delete their profiles from their user profile page through a button. 
+
+ 
+    
+
+
+# Deployment 
 
 --- 
 ### Heroku 
@@ -214,6 +238,28 @@ To make a local clone, follow the following steps.
 - Log in to GitHub and go to the repository.
  - Click on the green button with the text Code.
 - Click on “Open with GitHub Desktop” and follow the prompts in the GitHub Desktop Application.
+
+# Credits 
+
+### Tutors
+
+I had support from the Code Institute tutor team on various trouble shooting issues.
+
+Particularly, Igor and Jo have taken time to help me solve certain issues and understand how to solve the issue myself.
+
+### Mentors 
+
+Genga has given me some needed advice through the early stages of development.
+
+### Slack community 
+
+The Slack community has provided me with some great advice on particular issues i faced through development.
+
+
+
+
+
+
 
 
 

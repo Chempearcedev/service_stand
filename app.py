@@ -156,9 +156,7 @@ def edit_jobs(job_id):
 
 @app.route("/delete_job/<job_id>")
 def delete_job(job_id):
-    confirmation = input("Are you sure you want to delete your profile? Y/N")
-    if confirmation.lower() == "y":
-            mongo.db.jobs.remove({"_id": ObjectId(job_id)})
+    mongo.db.jobs.remove({"_id": ObjectId(job_id)})
     flash("Profile Successfully Deleted")
     return redirect(url_for("get_jobs"))
 
