@@ -1,7 +1,8 @@
-  $(document).ready(function(){
+$(document).ready(function(){
     $('.sidenav').sidenav();
     $('.tooltipped').tooltip();
     $('select').formSelect();
+    $('.modal').modal();
     $('.collapsible').collapsible();
      $(".datepicker").datepicker({
         format: "dd mm, yyyy",
@@ -42,5 +43,3 @@ validateMaterializeSelect();
         });
     }
   });
-
- 
