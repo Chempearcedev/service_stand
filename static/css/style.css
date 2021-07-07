@@ -107,6 +107,7 @@ font-family: 'Rajdhani', sans-serif;
     font-size: small;
 }
 
+
 @media only screen and (min-width: 600px) {
     .text {
       font-size: small;

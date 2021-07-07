@@ -61,7 +61,7 @@ def registration():
         mongo.db.user.insert_one(registration)
 
         session["user"] = request.form.get("username").lower()
-        flash("Your Registration Was Successful!")
+        flash("Your Registration Was Successful! Go to the homepage")
         return redirect(url_for("userprofile", username=session["user"]))
 
     return render_template("registration.html")
@@ -81,10 +81,10 @@ def login():
          
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Hello there, {}".format
+                session["user"] = request.form.get("username").lower()
+                flash("Hello there, {}".format
                         (request.form.get("username")))
-                    return redirect(url_for
+                return redirect(url_for
                         ("userprofile", username=session["user"]))
             else:
 
@@ -128,7 +128,7 @@ def credentials():
     job = mongo.db.jobs.find().sort("first", 1)
     professions = mongo.db.professions.find().sort("profession_type", 1)
     return render_template(
-    "credentials.html", job=job, professions=professions)
+        "credentials.html", job=job, professions=professions)
 
 
 @app.route("/edit_jobs/<job_id>", methods=["GET", "POST"])

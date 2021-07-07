@@ -17,14 +17,13 @@ to work and contact details.
 
 ### 1. [ Goals ](#goals)  
 ### 2.  [ UX ](#UX)
-### 3.  [ Design ](#goal)
-### 4.  [ User Stories ](#goal)
-### 5.  [ Features ](#goal)
-### 6.  [ Technologies ](#goal)
-### 7.  [ Testing ](#goal)
-### 8.  [ Deployment ](#goal)
-### 8.  [ Credits ](#goal)
-### 8.  [ Deployment ](#goal)
+### 3.  [ Design ](#design)
+### 4.  [ User Stories ](#user-stories)
+### 5.  [ Features ](#features)
+### 6.  [ Technologies ](#technologies)
+### 7.  [ Testing ](#testing)
+### 8.  [ Deployment ](#deployment)
+### 8.  [ Credits ](#credits)
 
 # Goals
 
@@ -33,7 +32,7 @@ To act as a platfrom for professionals in the TV/Film industy to connect for the
 
 To provide TV/Film makers a platform to source individuals based on locations and skill set, allowing them to employ people closer to the location of filming.
 
-To allow users to create a profile showcasing their availability, skill set, locations availabiity and contact details, and update and delete their profile freely.
+To allow users to create a profile showcasing their availability, skill set, locations availability and contact details, and update and delete their profile freely.
 
 # UX
 ---
@@ -44,7 +43,7 @@ A simple palette has been used to avoid distraction form the functionality this 
 
 The main attaraction of the app is the profesional profiles listed to enable users to discover the right individual based on key words.
 
-### User Stories 
+# User Stories 
 
 - I am a production company making a TV or Film and would like to source crew members that are close to the area of filming.
 
@@ -66,9 +65,15 @@ The main attaraction of the app is the profesional profiles listed to enable use
 
  - I am a user and i would like to search key words such as location, profession and skill in a search bar to find relevent profiles 
 
- ## Features 
+ # Features 
 
 ---
+
+## Figma 
+
+Please click on the link to view the wireframe for this app:
+
+https://www.figma.com/file/JgRHDWozINCzz0zh6F0Y47/Untitled?node-id=0%3A1
 
 <br />
 
@@ -84,8 +89,6 @@ Below this there are profiles that have been created by users. Within the profil
 <br />
 
 
-![alt tag](https://images.pexels.com/photos/4672292/pexels-photo-4672292.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500 "Description goes here")
-
 ## *User Profile* 
 
 <br />
@@ -96,8 +99,6 @@ At the bottom of their profile, users are able to edit or delete their profile u
 
 <br />
 
-![alt tag](https://images.pexels.com/photos/4672292/pexels-photo-4672292.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500 "Description goes here")
-
 ##  *Create A Job*
 
 <br />
@@ -107,7 +108,6 @@ If a user click on 'create a job' at the top of the page in the navigation bar, 
 <br />
 
 
-![alt tag](https://images.pexels.com/photos/4672292/pexels-photo-4672292.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500 "Description goes here")
 
 <br />
 
@@ -148,6 +148,10 @@ If a user click on 'create a job' at the top of the page in the navigation bar, 
 ## Testing 
 ---
 
+This project followed the PEP8 compliance format 
+
+W3 Validator was used to check the style code within this project
+
 ### Buttons 
 
  - Delete : Tests have been done on the delete button to ensure only users are able to their delete button so they other users cannot delete their profile.
@@ -165,9 +169,6 @@ If a user click on 'create a job' at the top of the page in the navigation bar, 
 - Update: <br /> Users are able to edit their profile from an edit button that takes them to another page with a form. A message informing the user their profile was updated will show once the user clicks the edit button.
      - Error : Users url for their profile image was not automatically shown on the edit form like other information, i found a mistake in the code in the edit_jobs.html page. This was fixed and images were now shown. 
  - Delete : Users are able to delete their profiles from their user profile page through a button. 
-
- 
-    
 
 
 # Deployment 
