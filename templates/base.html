@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lateef&family=Prata&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Charm&display=swap" rel="stylesheet">
 
@@ -27,7 +28,7 @@
 
     <header>
         <!-- navbar-->
-	<nav class="nav-extended text-shadow white darken-1">
+	<nav class="nav-extended text-shadow indigo accent-1">
 			<div class="nav-wrapper">
 				<a href="{{ url_for('get_jobs') }}" class="brand-logo"><span class="text">Service Stand</span></a>
 				   <a href="#" data-target="mobile-demo" class="sidenav-trigger left"><i class="fas fa-bars"></i></a>
@@ -35,7 +36,7 @@
                            {% if session.user %}
                                <li><a href="{{ url_for('get_jobs') }}"><span class="text">Home</span></a></li>
                                   <li><a href="{{ url_for('userprofile', username=session['user']) }}"><span class="text">My Profile</span></a></li>
-					          <li><a href="{{ url_for('credentials') }}"><span class="text">Add A Job</span></a></li>
+					          <li><a href="{{ url_for('credentials') }}"><span class="text">Add A Profile</span></a></li>
                           <li><a href="{{ url_for('loggingout') }}"><span class="text">Log Out</span></a></li>
                      {% else %}
 				 <li><a href="{{ url_for('login') }}"><span class="text">Log In</span></a></li>

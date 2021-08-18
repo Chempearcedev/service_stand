@@ -1,5 +1,5 @@
 body {
-    background-color: white;
+    background-color:#d9e2e1;
     margin: 0;
 }
 
@@ -74,6 +74,8 @@ font-family: 'Rajdhani', sans-serif;
 
 .info-header {
     text-align: center;
+    font-family: 'Courgette', cursive;
+    font-size: larger;
 }
 
 .profile-info {
@@ -108,8 +110,14 @@ font-family: 'Rajdhani', sans-serif;
 }
 
 
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 800px) {
     .text {
       font-size: small;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .profile-box {
+      margin-left: 55px!important;
     }
   }

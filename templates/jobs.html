@@ -2,17 +2,17 @@
 {% block content %}
 
 <h2 class="black-text text-darken-4 text center-align ">All Profiles</h2>
-<p class="info-header italic col m10"> Here you can find and connect with talented members of the film industry. Search key words in skills, locations and experience to find the right profiles </p>
+<p class="info-header col m10"> Here you can find and connect with talented members of the film industry. Search key words in skills, locations and experience to find the right profiles </p>
 
-    <div class="row card-panel rounded-border grey lighten-1 search-bar">
+    <div class="row card-panel rounded-border  red lighten-3 search-bar">
         <form action="{{ url_for('search_bar') }}" method="post" class="col s12 m12 center-align">
             <div class="row valign-wrapper center-align search-link">
                 <div class="input-field col s12 m12 search-link">
-                    <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-search prefix black-text text-darken-4"></i>
                     <input type="text" name="querying" id="querying" minlength="2" class="validate" required>
-                    <label for="querying">Search Profiles</label>
-      
-      <br>
+                    <label for="querying"><span class="white-text">Search Profiles</span></label>
+
+      <br> 
       <br>
       <div class="col s12 m12">
            <a href="{{ url_for('get_jobs') }}" class="red btn text-shadow btn-small reset" width="20px">Reset</a>
