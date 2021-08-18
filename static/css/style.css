@@ -78,6 +78,16 @@ font-family: 'Rajdhani', sans-serif;
     font-size: larger;
 }
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
 .profile-info {
     margin-bottom: 30px;
     align-items: center;
